@@ -1,0 +1,11 @@
+.total-users-title {
+    font-family: 'Work Sans';
+    font-weight: 400;
+    margin-left: 24px;
+}
+
+.total-users-value {
+    font-family: 'Work Sans';
+    font-weight: 200;
+    margin-left: 24px;
+}

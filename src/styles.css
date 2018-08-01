@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    background: #FFFFFF;
+}
+
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+    /* This background is dark, so we set text to white. Use 87% black instead if
+       your background is light. */
+    color: black;
+}
+
+.mdl-layout__drawer {
+    background: #263238;
+    width: 300px;
+    left: -150px;
+    color: white;
+    margin: 0px;
+}
+
+.mdl-layout__drawer.is-visible {
+    left: 0;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+    background: #263238;
+    color: white;
+    font-family: Work Sans;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.mdl-navigation__link:hover {
+    background: #616161 !important;
+    color: #E0E0E0 !important;
+}
+
+.profile-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    margin-top: 10%;
+}
