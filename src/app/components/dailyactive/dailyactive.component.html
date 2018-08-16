@@ -1,0 +1,9 @@
+<div class="mdl-card mdl-shadow--2dp" style="background: #0288D1;;">
+  <div class="mdl-card__title">
+    <i class="material-icons md-light">face</i>
+    <div class="active-users-title mdl-card__subtitle-text" style="color: #EEEEEE">Daily Active Users</div>
+  </div>
+  <div class="active-users-value" style="color: white" *ngIf="users">
+    {{(users.daily_active_user + 10000000) | largenumberpipe: 1}}
+  </div>
+</div>
