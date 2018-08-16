@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TotalusersService } from '../../services/totalusers.service'
+import { TotalusersService, TotalUsers } from '../../services/totalusers.service'
 
 @Component({
   selector: 'app-totalusers',
@@ -8,14 +8,16 @@ import { TotalusersService } from '../../services/totalusers.service'
 })
 export class TotalusersComponent implements OnInit {
 
-  @Input() total_users: number = 2;
+  users: TotalUsers;
 
   constructor(private service: TotalusersService) {
-    this.total_users = service.totalUsers;
+    
   }
 
   ngOnInit() {
-    //call API here
+    this.service.totalUsers().subscribe(users => {
+      this.users = users;
+    });
   }
 
 }

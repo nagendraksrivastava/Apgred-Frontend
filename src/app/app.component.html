@@ -1,34 +1,32 @@
 <!-- Uses a transparent header that draws on top of the layout's background -->
-<div class="demo-layout-transparent mdl-layout mdl-js-layout">
-  <header class="mdl-layout__header mdl-layout__header--transparent">
-    <div class="mdl-layout__header-row">
-      <!-- Title -->
-      <span class="mdl-layout-title" style="font-family: Work Sans; font-size: 22px; font-weight: 400;">APGRED</span>
-      <!-- Add spacer, to align navigation to the right -->
-      <div class="mdl-layout-spacer"></div>
-    </div>
-  </header>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+  <app-dashboardheader></app-dashboardheader>
   <div class="mdl-layout__drawer">
-    <img src="https://cdn.dribbble.com/users/23676/screenshots/891287/acme_corp.png" class="profile-img"/>
-    <span class="mdl-layout-title mdl-typography--title" style="font-family: Work Sans; font-weight: 400;">Welcome Acme Corp</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" [routerLink]="['/']" href="">Home</a>
-      <a class="mdl-navigation__link" [routerLink]="['/versionmanagement']" href="">Version Management</a>
-      <a class="mdl-navigation__link" href="">Users</a>
-      <a class="mdl-navigation__link" href="">Settings</a>
-      <a class="mdl-navigation__link" href="">Profile</a>
+    <span style="font-family: Work Sans; font-size: 22px; font-weight: 400; color: white; font-size:20px; margin-left: 20px; margin-top: 24px;">Acme Corp</span>
+    <nav class="mdl-navigation" style="margin-top: 4px;">
+      <a class="mdl-navigation__link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/']" href="">
+        <i class="material-icons md-light" role="presentation">home</i>
+        Home
+      </a>
+      <a class="mdl-navigation__link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/versionmanagement']" href="">
+        <i class="material-icons md-light" role="presentation">code</i>
+        Version Management
+      </a>
+      <a class="mdl-navigation__link" href="">
+          <i class="material-icons md-light" role="presentation">people</i>
+        Users
+      </a>
+      <a class="mdl-navigation__link" href="">
+          <i class="material-icons md-light" role="presentation">settings</i>
+        Settings
+      </a>
+      <a class="mdl-navigation__link" href="">
+          <i class="material-icons md-light" role="presentation">mood</i>
+        Profile
+      </a>
     </nav>
   </div>
   <main class="mdl-layout__content">
-      <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </main>
-  <footer class="mdl-mini-footer">
-      <div class="mdl-mini-footer__left-section">
-        <div class="mdl-logo">Title</div>
-        <ul class="mdl-mini-footer__link-list">
-          <li><a href="#">Help</a></li>
-          <li><a href="#">Privacy & Terms</a></li>
-        </ul>
-      </div>
-    </footer>
 </div>

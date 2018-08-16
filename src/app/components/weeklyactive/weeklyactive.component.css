@@ -1,9 +1,9 @@
-.total-users-title {
+.active-users-title {
     font-family: 'Work Sans';
     font-weight: 500;
 }
 
-.total-users-value {
+.active-users-value {
     font-family: 'Work Sans';
     font-weight: 200;
     margin-left: 48px;
