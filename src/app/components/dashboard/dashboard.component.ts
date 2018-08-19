@@ -3,11 +3,11 @@ import { Router, ActivatedRoute, NavigationEnd  } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-dashboardheader',
-  templateUrl: './dashboardheader.component.html',
-  styleUrls: ['./dashboardheader.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class DashboardheaderComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
   currentRoute: string;
 
@@ -22,11 +22,14 @@ export class DashboardheaderComponent implements OnInit {
         ).subscribe(() => {
             var route = this.router.url.replace('/', '');
             this.currentRoute = this.routeMap.get(route);
+            console.log("CURRENT ROUTE: " + this.currentRoute);
         });
     }
 
   private fillRouteMap() {
     this.routeMap.set("", "Home");
-    this.routeMap.set("versionmanagement", "Version Management");
+    this.routeMap.set("dashboard/home", "Home");
+    this.routeMap.set("dashboard/versionmanagement", "Version Management");
   }
+
 }

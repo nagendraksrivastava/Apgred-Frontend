@@ -1,31 +1,5 @@
 <!-- Uses a transparent header that draws on top of the layout's background -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-  <app-dashboardheader></app-dashboardheader>
-  <div class="mdl-layout__drawer">
-    <span style="font-family: Work Sans; font-size: 22px; font-weight: 400; color: white; font-size:20px; margin-left: 20px; margin-top: 24px;">Acme Corp</span>
-    <nav class="mdl-navigation" style="margin-top: 4px;">
-      <a class="mdl-navigation__link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/']" href="">
-        <i class="material-icons md-light" role="presentation">home</i>
-        Home
-      </a>
-      <a class="mdl-navigation__link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/versionmanagement']" href="">
-        <i class="material-icons md-light" role="presentation">code</i>
-        Version Management
-      </a>
-      <a class="mdl-navigation__link" href="">
-          <i class="material-icons md-light" role="presentation">people</i>
-        Users
-      </a>
-      <a class="mdl-navigation__link" href="">
-          <i class="material-icons md-light" role="presentation">settings</i>
-        Settings
-      </a>
-      <a class="mdl-navigation__link" href="">
-          <i class="material-icons md-light" role="presentation">mood</i>
-        Profile
-      </a>
-    </nav>
-  </div>
+<div class="mdl-layout mdl-js-layout">
   <main class="mdl-layout__content">
     <router-outlet></router-outlet>
   </main>

@@ -4,17 +4,14 @@ body {
     background: #FFFFFF;
 }
 
-.demo-layout-transparent .mdl-layout__header,
-.demo-layout-transparent .mdl-layout__drawer-button {
-    /* This background is dark, so we set text to white. Use 87% black instead if
-       your background is light. */
+.mdl-layout__header .mdl-layout__drawer-button {
     color: black;
 }
 
 .mdl-layout__drawer {
-    background: #424242;
+    background: white;
     width: 240px;
-    color: white;
+    color: black;
     border: 0px;
 }
 
@@ -22,11 +19,11 @@ body {
     width: 48px;
     height: 48px;
     border-radius: 24px;
-  }
+}
 
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
-    background: #424242;
-    color: white;
+    background: white;
+    color: black;
     font-family: Work Sans;
     font-size: 14px;
     font-weight: 500;
@@ -36,12 +33,12 @@ body {
 }
 
 .mdl-navigation__link:hover:not(.active) {
-    background: #616161 !important;
-    color: #E0E0E0 !important;
+    background: #E3F2FD !important;
+    color: black !important;
 }
 
 .active {
-    background: #FAFAFA !important;
+    background: #BBDEFB !important;
     color: black !important;
 }
 
@@ -51,6 +48,6 @@ body {
     margin-top: 20%;
 }
 
-  .material-icons {
+.material-icons:not(.mdl-layout__drawer-button) {
     margin-right: 16px;
-  }
+}

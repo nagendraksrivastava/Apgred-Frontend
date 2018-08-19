@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActiveUsersFilters } from '../../constants/app.constants'
-import { ActiveusersService, ActiveUsers } from '../../services/activeusers.service'
+import { ActiveUsers, ActiveusersService } from '../../../services/activeusers.service';
+import { ActiveUsersFilters } from '../../../constants/app.constants';
 
 @Component({
   selector: 'app-dailyactive',

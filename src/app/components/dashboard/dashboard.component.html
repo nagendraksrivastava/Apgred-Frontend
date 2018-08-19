@@ -1,0 +1,40 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header dashboard-header" style="background: white;">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title" style="font-family: Work Sans; font-size: 22px; font-weight: 400; color: black">{{currentRoute}}</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ab_d5Q1h7HyNscz5Cky-wc3-2xEVz1QH3WF5i4XK7tPImiycCQ" class="avatar">
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span style="font-family: Work Sans; font-size: 22px; font-weight: 400; color: black; font-size:20px; margin-left: 20px; margin-top: 24px;">Acme Corp</span>
+    <nav class="mdl-navigation" style="margin-top: 4px;">
+      <a class="mdl-navigation__link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['home']"
+        href="">
+        <i class="material-icons md-light" role="presentation">home</i>
+        Home
+      </a>
+      <a class="mdl-navigation__link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['versionmanagement']"
+        href="">
+        <i class="material-icons md-light" role="presentation">code</i>
+        Version Management
+      </a>
+      <a class="mdl-navigation__link" href="">
+        <i class="material-icons md-light" role="presentation">people</i>
+        Users
+      </a>
+      <a class="mdl-navigation__link" href="">
+        <i class="material-icons md-light" role="presentation">settings</i>
+        Settings
+      </a>
+      <a class="mdl-navigation__link" href="">
+        <i class="material-icons md-light" role="presentation">mood</i>
+        Profile
+      </a>
+    </nav>
+  </div>
+  <div class="mdl-layout__content" style="padding-left: 16px; padding-top: 8px;">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TotalusersService, TotalUsers } from '../../services/totalusers.service'
+import { TotalUsers, TotalusersService } from '../../../services/totalusers.service';
 
 @Component({
   selector: 'app-totalusers',
