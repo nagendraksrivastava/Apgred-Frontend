@@ -13,7 +13,7 @@ export class ApgredRequestInterceptor implements HttpInterceptor {
 
     request = request.clone({
       setHeaders: {
-        Authorization: `774ba08b7e7aff5cb8e1c873a0bf129c1e037276`
+        Authorization: `b328183552f33957066cc9e700f37776a4c7567b`
       }
     });
 

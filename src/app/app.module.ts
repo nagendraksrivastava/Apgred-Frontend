@@ -16,6 +16,8 @@ import { WeeklyactiveComponent } from './components/weeklyactive/weeklyactive.co
 import { MonthlyactiveComponent } from './components/monthlyactive/monthlyactive.component';
 import { LargenumberpipePipe } from './pipes/largenumberpipe.pipe';
 import { DashboardheaderComponent } from './components/dashboardheader/dashboardheader.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { DashboardheaderComponent } from './components/dashboardheader/dashboard
     MonthlyactiveComponent,
     LargenumberpipePipe,
     DashboardheaderComponent,
+    LandingComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
