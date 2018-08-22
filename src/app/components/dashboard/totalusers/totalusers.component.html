@@ -1,9 +1,9 @@
-<div class="mdl-card mdl-shadow--2dp" style="background: #0288D1;">
-  <div class="mdl-card__title">
-    <i class="material-icons md-light">face</i>
-    <div class="total-users-title mdl-card__subtitle-text" style="color: #EEEEEE">Total Users</div>
+<div class="card shadow" style="max-width: 18rem; min-width: 18rem;">
+  <h5 class="card-header">
+    <i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp; Total Users</h5>
+  <div class="card-body">
+    <p class="card-title font-weight-normal">Total number of users who use your app</p>
+    <p class="card-text display-4 font-weight-light" *ngIf="users">{{(users.total_user + 11110000) | largenumberpipe: 1}}</p>
   </div>
-  <div class="total-users-value" style="color: white" *ngIf="users">
-    {{(users.total_user + 11110000) | largenumberpipe: 1}}
-  </div>
+
 </div>
