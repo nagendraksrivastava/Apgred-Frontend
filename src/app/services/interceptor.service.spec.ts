@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { InterceptorService } from './interceptor.service';
+import { ApgredRequestInterceptor } from './interceptor.service';
 
 describe('InterceptorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [InterceptorService]
+      providers: [ApgredRequestInterceptor]
     });
   });
 
-  it('should be created', inject([InterceptorService], (service: InterceptorService) => {
+  it('should be created', inject([ApgredRequestInterceptor], (service: ApgredRequestInterceptor) => {
     expect(service).toBeTruthy();
   }));
 });

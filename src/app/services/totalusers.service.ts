@@ -15,6 +15,6 @@ export class TotalusersService {
   constructor(private http: HttpClient) { }
 
   totalUsers() {
-    return this.http.get<TotalUsers>(ApiEndPoints.BASE_URL + total_users_endpoint)
+    return this.http.get<TotalUsers>(ApiEndPoints.BASE_URL + total_users_endpoint);
   }
 }

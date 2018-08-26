@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd  } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,27 +9,17 @@ import { filter } from 'rxjs/operators';
 })
 export class DashboardComponent implements OnInit {
 
-  currentRoute: string;
+  loggedInUser: any;
 
-  routeMap = new Map<string, string>();
+  constructor(private router: Router, private localStorageService: LocalStorageService) { }
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
-  
-    ngOnInit() {
-        this.fillRouteMap();
-        this.router.events.pipe(
-            filter(event => event instanceof NavigationEnd)
-        ).subscribe(() => {
-            var route = this.router.url.replace('/', '');
-            this.currentRoute = this.routeMap.get(route);
-            console.log("CURRENT ROUTE: " + this.currentRoute);
-        });
-    }
+  ngOnInit() {
+    this.loggedInUser = this.localStorageService.get("loggedInUser");
+  }
 
-  private fillRouteMap() {
-    this.routeMap.set("", "Home");
-    this.routeMap.set("dashboard/home", "Home");
-    this.routeMap.set("dashboard/versionmanagement", "Version Management");
+  logout() {
+    this.localStorageService.remove("loggedInUser");
+    this.router.navigateByUrl("/login");
   }
 
 }

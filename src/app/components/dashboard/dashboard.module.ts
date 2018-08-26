@@ -14,11 +14,14 @@ import { LargenumberpipePipe } from '../../pipes/largenumberpipe.pipe';
 import { TotalusersService } from '../../services/totalusers.service';
 import { ActiveusersService } from '../../services/activeusers.service';
 import { ApgredRequestInterceptor } from '../../services/interceptor.service';
+import { AuthGuard } from '../../guards/auth.guard';
+import { LocalStorageService } from '../../services/local-storage.service';
 
 const dashboardRoutes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -57,6 +60,7 @@ const dashboardRoutes: Routes = [
   providers: [
     TotalusersService,
     ActiveusersService,
+    LocalStorageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApgredRequestInterceptor,

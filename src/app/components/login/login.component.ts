@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../services/login.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AlertService } from '../../services/alert-service.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  model: any = {};
+  loading = false;
+  returnUrl: string;
+
+  constructor(
+    private route: ActivatedRoute,
+    private loginService: LoginService,
+    private router: Router,
+    private alertService: AlertService) { }
 
   ngOnInit() {
+    this.loginService.logout();
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'dashboard';
+  }
+
+  login() {
+    this.loading = true;
+    this.loginService.login(this.model.email, this.model.password)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.router.navigate([this.returnUrl]);
+        },
+        error => {
+          this.alertService.error(error);
+          this.loading = false;
+        });
   }
 
 }
