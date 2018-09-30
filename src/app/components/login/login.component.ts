@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate([this.returnUrl]);
         },
         error => {
-          this.alertService.error(error);
+          this.alertService.error("Unable to login, please check your login credentials!");
           this.loading = false;
         });
   }

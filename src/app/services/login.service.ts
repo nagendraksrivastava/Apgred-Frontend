@@ -6,8 +6,13 @@ import { map } from 'rxjs/operators';
 
 let login_endpoint = "/login/";
 
+export interface AppToken {
+  app_token: string;
+}
+
 export interface LoginResponse {
   token: string;
+  app_token: AppToken[];
   img_url: string;
   email: string;
   company_name: string;
