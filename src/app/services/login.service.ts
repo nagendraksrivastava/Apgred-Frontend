@@ -11,11 +11,12 @@ export interface AppToken {
 }
 
 export interface LoginResponse {
+  company_logo: string;
   token: string;
-  app_token: AppToken[];
-  img_url: string;
-  email: string;
   company_name: string;
+  app_logo?: any;
+  app_token: string;
+  email: string;
 }
 
 @Injectable({
@@ -26,10 +27,11 @@ export class LoginService {
   constructor(private http: HttpClient, private localStorageService: LocalStorageService) { }
 
   login(username: string, password: string) {
-    return this.http.post<LoginResponse>(ApiEndPoints.BASE_URL + login_endpoint, { email: username, password: password })
+    return this.http.post<LoginResponse[]>(ApiEndPoints.BASE_URL + login_endpoint, { email: username, password: password })
       .pipe(map(user => {
-        if (user && user.token) {
-          this.localStorageService.set('loggedInUser', user);
+        console.log(user)
+        if (user[0] && user[0].token) {
+          this.localStorageService.set('loggedInUser', user[0]);
         }
       }));
   }

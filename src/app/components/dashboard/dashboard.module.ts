@@ -16,6 +16,8 @@ import { ActiveusersService } from '../../services/activeusers.service';
 import { ApgredRequestInterceptor } from '../../services/interceptor.service';
 import { AuthGuard } from '../../guards/auth.guard';
 import { LocalStorageService } from '../../services/local-storage.service';
+import { VersionmanagementService } from '../../services/versionmanagement.service';
+import { VersionsComponent } from './versions/versions.component';
 
 const dashboardRoutes: Routes = [
   {
@@ -55,12 +57,14 @@ const dashboardRoutes: Routes = [
     WeeklyactiveComponent,
     MonthlyactiveComponent,
     LargenumberpipePipe,
+    VersionsComponent,
   ],
   exports: [],
   providers: [
     TotalusersService,
     ActiveusersService,
     LocalStorageService,
+    VersionmanagementService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApgredRequestInterceptor,
