@@ -14,7 +14,7 @@
         <tbody>
           <tr *ngFor="let version of versions">
             <td class="col-sm-3">{{version.version_name}}</td>
-            <td class="col-sm-3" [ngClass]="{'table-success' : version.is_production}">{{version.is_production}}</td>
+            <td class="col-sm-3" [ngClass]="{'table-success' : version.is_production}">{{version.is_production ? "True" : "False"}}</td>
             <td class="col-sm-3">{{version.version_code}}</td>
           </tr>
         </tbody>
