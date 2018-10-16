@@ -12,8 +12,8 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { DashboardModule } from './components/dashboard/dashboard.module';
 import { LoginService } from './services/login.service';
 import { LocalStorageService } from './services/local-storage.service';
-import { AlertService } from './services/alert-service.service';
 import { AuthGuard } from './guards/auth.guard';
+import { AppcommonModule } from './components/appcommon/appcommon.module';
 import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
@@ -23,9 +23,10 @@ import { AlertComponent } from './components/alert/alert.component';
     LoginComponent,
     DashboardComponent,
     NotfoundComponent,
-    AlertComponent,
+    AlertComponent
   ],
   imports: [
+    AppcommonModule,
     BrowserModule,
     AppRoutes,
     HttpClientModule,
@@ -35,8 +36,7 @@ import { AlertComponent } from './components/alert/alert.component';
   providers: [
     AuthGuard,
     LoginService,
-    LocalStorageService,
-    AlertService],
+    LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

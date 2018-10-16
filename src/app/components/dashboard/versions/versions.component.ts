@@ -27,4 +27,9 @@ export class VersionsComponent implements OnInit {
       })
   }
 
+  public onIsProductionChanged(version: VersionDetail){
+    console.log("called onIsProductionChanged")
+    console.log(version)
+  }
+
 }

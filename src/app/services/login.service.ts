@@ -27,7 +27,11 @@ export class LoginService {
   constructor(private http: HttpClient, private localStorageService: LocalStorageService) { }
 
   login(username: string, password: string) {
-    return this.http.post<LoginResponse[]>(ApiEndPoints.BASE_URL + login_endpoint, { email: username, password: password })
+    return this.http.post<LoginResponse[]>(ApiEndPoints.BASE_URL + login_endpoint,
+      {
+        email: username,
+        password: password
+      })
       .pipe(map(user => {
         console.log(user)
         if (user[0] && user[0].token) {
@@ -39,6 +43,6 @@ export class LoginService {
   logout() {
     // remove user from local storage to log user out
     this.localStorageService.remove('loggedInUser');
-}
+  }
 
 }

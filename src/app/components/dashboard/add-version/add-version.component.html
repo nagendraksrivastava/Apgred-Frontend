@@ -1,0 +1,31 @@
+<div class="container">
+  <h3 class="ml-2" style="font-weight: 300;">Add new version</h3>
+  <div class="row justify-content-center mt-2">
+    <div class="col-sm">
+      <form class="form-inline" (ngSubmit)="f.form.valid && addVersion()" #f="ngForm" novalidate>
+        <div class="form-row align-items-center">
+          <div class="form-group mr-sm-2 mb-2" [ngClass]="{ 'has-error': f.submitted && !versionName.valid }">
+            <label for="inputVersionName" class="sr-only">Version Name</label>
+            <input type="text" id="inputVersionName" class="form-control" placeholder="Version Name" name="versionName"
+              [(ngModel)]="model.versionName" #versionName="ngModel" required autofocus>
+            <div *ngIf="f.submitted && !versionName.valid" class="help-block text-danger ml-2">Version name is required</div>
+          </div>
+          <div class="form-group mr-sm-2 mb-2" [ngClass]="{ 'has-error': f.submitted && !versionCode.valid }">
+            <label for="inputVersionCode" class="sr-only">Version Code</label>
+            <input type="number" min="1" id="inputVersionCode" class="form-control" placeholder="Version Code" name="versionCode"
+              [(ngModel)]="model.versionCode" #versionCode="ngModel" data-bind="value:replyNumber" required>
+            <div *ngIf="f.submitted && !versionCode.valid" class="help-block text-danger ml-2">Version code is numeric</div>
+          </div>
+          <div class="form-group mr-sm-2 mb-2">
+            <div class="form-check">
+              <input type="checkbox" id="inputIsProduction" class="form-check-input" placeholder="Is Production" name="isProduction"
+                [(ngModel)]="model.isProduction" #isProduction="ngModel">
+              <label class="form-check-label" for="inputIsProduction">Is Production</label>
+            </div>
+          </div>
+        </div>
+        <button [disabled]="loading" class="btn btn-primary mb-2 ml-lg-2" type="submit">Add Version</button>
+      </form>
+    </div>
+  </div>
+</div>

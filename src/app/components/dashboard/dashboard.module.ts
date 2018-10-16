@@ -18,6 +18,10 @@ import { AuthGuard } from '../../guards/auth.guard';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { VersionmanagementService } from '../../services/versionmanagement.service';
 import { VersionsComponent } from './versions/versions.component';
+import { FormsModule } from '@angular/forms';
+import { AddVersionComponent } from './add-version/add-version.component';
+import { AddVersionService } from '../../services/add-version.service';
+import { AppcommonModule } from '../appcommon/appcommon.module';
 
 const dashboardRoutes: Routes = [
   {
@@ -48,6 +52,8 @@ const dashboardRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forChild(dashboardRoutes),
+    FormsModule,
+    AppcommonModule
   ],
   declarations: [
     TotalusersComponent,
@@ -58,6 +64,7 @@ const dashboardRoutes: Routes = [
     MonthlyactiveComponent,
     LargenumberpipePipe,
     VersionsComponent,
+    AddVersionComponent,
   ],
   exports: [],
   providers: [
@@ -65,6 +72,7 @@ const dashboardRoutes: Routes = [
     ActiveusersService,
     LocalStorageService,
     VersionmanagementService,
+    AddVersionService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApgredRequestInterceptor,
