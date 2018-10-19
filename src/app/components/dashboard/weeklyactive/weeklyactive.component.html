@@ -3,5 +3,5 @@
     <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Weekly Active</h5>
   <div class="card-body">
     <p class="card-title font-weight-normal">Users who use your app every week</p>
-    <p class="card-text display-4 font-weight-light" *ngIf="users">{{(users.weekly_active_user + 10000000) | largenumberpipe: 1}}</p>
+    <p class="card-text display-4 font-weight-light" *ngIf="users">{{(users.weekly_active_user) | largenumberpipe: 1}}</p>
   </div>

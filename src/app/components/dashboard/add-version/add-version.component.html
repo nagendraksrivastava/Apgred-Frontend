@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container mt-5">
   <h3 class="ml-2" style="font-weight: 300;">Add new version</h3>
   <div class="row justify-content-center mt-2">
     <div class="col-sm">
-      <form class="form-inline" (ngSubmit)="f.form.valid && addVersion()" #f="ngForm" novalidate>
+      <form class="form-inline" (ngSubmit)="f.form.valid && addVersion(); f.resetForm();" #f="ngForm" novalidate>
         <div class="form-row align-items-center">
           <div class="form-group mr-sm-2 mb-2" [ngClass]="{ 'has-error': f.submitted && !versionName.valid }">
             <label for="inputVersionName" class="sr-only">Version Name</label>

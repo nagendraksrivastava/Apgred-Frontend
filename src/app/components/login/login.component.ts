@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.model.email, this.model.password)
       .subscribe(
         data => {
+          this.loading = false
           this.router.navigate([this.returnUrl]);
         },
         error => {

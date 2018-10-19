@@ -10,6 +10,7 @@ let version_management_endpoint = "/allversion/";
 export interface VersionDetail {
   version_name: string;
   is_production: boolean;
+  is_enabled: boolean;
   version_code: number;
   app_name: string;
   package_name: string;

@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { AddVersionComponent } from './add-version/add-version.component';
 import { AddVersionService } from '../../services/add-version.service';
 import { AppcommonModule } from '../appcommon/appcommon.module';
+import { EnableVersionProdService } from 'src/app/services/enable-version-prod.service';
 
 const dashboardRoutes: Routes = [
   {
@@ -73,6 +74,7 @@ const dashboardRoutes: Routes = [
     LocalStorageService,
     VersionmanagementService,
     AddVersionService,
+    EnableVersionProdService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApgredRequestInterceptor,

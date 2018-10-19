@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
   <h3 class="ml-2" style="font-weight: 300;">App Versions</h3>
   <div class="row">
     <div class="col-sm">
@@ -11,6 +11,8 @@
             <th class="col-sm-3" scope="col">Is Production</th>
             <th class="col-sm-3" scope="col">Version Code</th>
             <th class="col-sm-3" scope="col">Enabled</th>
+            <th class="col-sm-3" scope="col">Edit</th>
+            <th class="col-sm-3" scope="col">Configuration</th>
           </tr>
         </thead>
         <tbody>
@@ -18,19 +20,85 @@
             <td class="col-sm-3">{{version.version_name}}</td>
             <td class="col-sm-3">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="is_production" name="is_production" [checked]="version.is_production" (change)="onIsProductionChanged(version)"></div>
+                <input class="form-check-input" type="checkbox" id="is_production" name="is_production" [checked]="version.is_production"
+                  (change)="version.is_production = !version.is_production"></div>
             </td>
             <td class="col-sm-3">{{version.version_code}}</td>
             <td>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <input class="form-check-input" type="checkbox" id="is_enabled" name="is_enabled" [checked]="version.is_enabled"
+                  (change)="version.is_enabled = !version.is_enabled">
               </div>
             </td>
+            <td><button type="button" class="btn btn-outline-primary btn-sm" (click)="changeEnabledAndIsProd(version)"><i
+                  class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                Update</button></td>
+            <td><button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#configureModal"
+                data-whatever="version"><i class="fa fa-cog" aria-hidden="true"></i>
+                Configure</button></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-</div>
+  <!-- Modal -->
+  <div #configureModal class="modal fade" id="configureModal" tabindex="-1" role="dialog" aria-labelledby="configureModal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="configureModal">Configure this version</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="form-update-version" (ngSubmit)="f.form.valid && updateVersion(version)" #f="ngForm" novalidate>
+            <div class="form-group">
+              <label for="updateType">Update Type</label>
+              <select class="form-control" id="updateType">
+                <option>Soft</option>
+                <option>Hard</option>
+              </select>
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !version_name.valid }">
+              <label for="version-name" class="col-form-label">Version Name:</label>
+              <input type="text" class="form-control" id="version-name" name="version_name" [(ngModel)]="model.version_name"
+                #version_name="ngModel" required>
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !version_code.valid }">
+              <label for="version-code" class="col-form-label">Version Code:</label>
+              <input type="number" class="form-control" id="version-code" name="version_code" [(ngModel)]="model.version_code"
+                #version_code="ngModel" required>
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !title.valid }">
+              <label for="title" class="col-form-label">App Dialog Title:</label>
+              <input type="text" class="form-control" id="title" name="title" [(ngModel)]="model.title" #title="ngModel"
+                required>
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !description.valid }">
+              <label for="description" class="col-form-label">App Dialog Message:</label>
+              <textarea class="form-control" id="description" name="description" [(ngModel)]="model.description"
+                #description="ngModel" required></textarea>
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !positive.valid }">
+              <label for="positive" class="col-form-label">Dialog Positive Action Text:</label>
+              <input type="text" class="form-control" id="positive" name="positive" [(ngModel)]="model.positive"
+                #positive="ngModel">
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !negative.valid }">
+                <label for="negative" class="col-form-label">Dialog Negative Action Text:</label>
+                <input type="text" class="form-control" id="negative" name="negative" [(ngModel)]="model.negative"
+                  #negative="ngModel">
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Update configuration</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<!-- [ngClass]="{'table-primary' : version.is_production , 'table' : !version.is_production}" -->
+  <!-- [ngClass]="{'table-primary' : version.is_production , 'table' : !version.is_production}" -->

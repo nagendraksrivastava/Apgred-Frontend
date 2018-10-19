@@ -3,7 +3,7 @@
     <i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp; Total Users</h5>
   <div class="card-body">
     <p class="card-title font-weight-normal">Total number of users who use your app</p>
-    <p class="card-text display-4 font-weight-light" *ngIf="users">{{(users.total_user + 11110000) | largenumberpipe: 1}}</p>
+    <p class="card-text display-4 font-weight-light" *ngIf="users">{{(users.total_user) | largenumberpipe: 1}}</p>
   </div>
 
 </div>

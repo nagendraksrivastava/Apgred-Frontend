@@ -15,6 +15,7 @@ import { LocalStorageService } from './services/local-storage.service';
 import { AuthGuard } from './guards/auth.guard';
 import { AppcommonModule } from './components/appcommon/appcommon.module';
 import { AlertComponent } from './components/alert/alert.component';
+import { BusinessleadsService } from './services/businessleads.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AlertComponent } from './components/alert/alert.component';
   providers: [
     AuthGuard,
     LoginService,
-    LocalStorageService],
+    LocalStorageService,
+    BusinessleadsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
