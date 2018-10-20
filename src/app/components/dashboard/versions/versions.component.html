@@ -33,7 +33,7 @@
             <td><button type="button" class="btn btn-outline-primary btn-sm" (click)="changeEnabledAndIsProd(version)"><i
                   class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 Update</button></td>
-            <td><button type="button" class="btn btn-outline-info btn-sm" (click)="openModal(version)"><i
+            <td><button type="button" class="btn btn-outline-dark btn-sm" (click)="openModal(version)"><i
                   class="fa fa-cog" aria-hidden="true"></i>
                 Configure</button></td>
           </tr>
@@ -62,32 +62,32 @@
               </select>
             </div>
             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !version_name.valid }">
-              <label for="version-name" class="col-form-label">Version Name:</label>
+              <label for="version-name" class="col-form-label">Version Name</label>
               <input type="text" class="form-control" id="version-name" name="version_name" [(ngModel)]="model.version_name"
                 #version_name="ngModel" readonly required>
             </div>
             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !version_code.valid }">
-              <label for="version-code" class="col-form-label">Version Code:</label>
+              <label for="version-code" class="col-form-label">Version Code</label>
               <input type="number" class="form-control" id="version-code" name="version_code" [(ngModel)]="model.version_code"
                 #version_code="ngModel" readonly required>
             </div>
             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !title.valid }">
-              <label for="title" class="col-form-label">App Dialog Title:</label>
+              <label for="title" class="col-form-label">App Dialog Title</label>
               <input type="text" class="form-control" id="title" name="title" [(ngModel)]="model.title" #title="ngModel"
                 required>
             </div>
             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !message.valid }">
-              <label for="message" class="col-form-label">App Dialog Message:</label>
+              <label for="message" class="col-form-label">App Dialog Message</label>
               <textarea class="form-control" id="message" name="message" [(ngModel)]="model.message"
                 #message="ngModel" required></textarea>
             </div>
             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !positive_button_text.valid }">
-              <label for="positive_button_text" class="col-form-label">Dialog Positive Action Text:</label>
+              <label for="positive_button_text" class="col-form-label">Dialog Positive Action Text</label>
               <input type="text" class="form-control" id="positive_button_text" name="positive_button_text" [(ngModel)]="model.positive_button_text"
                 #positive_button_text="ngModel">
             </div>
             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !negative_button_text.valid }">
-              <label for="negative_button_text" class="col-form-label">Dialog Negative Action Text:</label>
+              <label for="negative_button_text" class="col-form-label">Dialog Negative Action Text</label>
               <input type="text" class="form-control" id="negative_button_text" name="negative_button_text" [(ngModel)]="model.negative_button_text"
                 #negative_button_text="ngModel">
             </div>

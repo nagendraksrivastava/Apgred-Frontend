@@ -1,17 +1,17 @@
 header.masthead {
     position: relative;
-    background-color: #212529;
+    background-color: #fff;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
 }
 
 @media (min-width: 768px) {
     header.masthead {
-        padding-top: 6rem;
+        padding-top: 8rem;
         padding-bottom: 4rem;
     }
 }
@@ -23,6 +23,7 @@ header.masthead {
 .showcase .showcase-img {
     min-height: 30rem;
     background-size: cover;
+    background-color: #fff;
 }
 
 @media (min-width: 768px) {
@@ -68,7 +69,7 @@ header.masthead {
 
 .call-to-action {
     position: relative;
-    background-color: #212529;
+    background-color: #fff;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
