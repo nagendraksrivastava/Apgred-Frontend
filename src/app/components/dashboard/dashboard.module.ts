@@ -23,6 +23,7 @@ import { AddVersionComponent } from './add-version/add-version.component';
 import { AddVersionService } from '../../services/add-version.service';
 import { AppcommonModule } from '../appcommon/appcommon.module';
 import { EnableVersionProdService } from 'src/app/services/enable-version-prod.service';
+import { UpdateVersionService } from 'src/app/services/update-version.service';
 
 const dashboardRoutes: Routes = [
   {
@@ -75,6 +76,7 @@ const dashboardRoutes: Routes = [
     VersionmanagementService,
     AddVersionService,
     EnableVersionProdService,
+    UpdateVersionService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApgredRequestInterceptor,

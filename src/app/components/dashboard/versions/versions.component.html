@@ -33,8 +33,8 @@
             <td><button type="button" class="btn btn-outline-primary btn-sm" (click)="changeEnabledAndIsProd(version)"><i
                   class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 Update</button></td>
-            <td><button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#configureModal"
-                data-whatever="version"><i class="fa fa-cog" aria-hidden="true"></i>
+            <td><button type="button" class="btn btn-outline-info btn-sm" (click)="openModal(version)"><i
+                  class="fa fa-cog" aria-hidden="true"></i>
                 Configure</button></td>
           </tr>
         </tbody>
@@ -42,60 +42,60 @@
     </div>
   </div>
   <!-- Modal -->
-  <div #configureModal class="modal fade" id="configureModal" tabindex="-1" role="dialog" aria-labelledby="configureModal"
+  <div #appUpdateModal class="modal fade" id="configureModal" tabindex="-1" role="dialog" aria-labelledby="configureModal"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="configureModal">Configure this version</h5>
+          <h5 class="modal-title" id="configureModal">Configure version</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form class="form-update-version" (ngSubmit)="f.form.valid && updateVersion(version)" #f="ngForm" novalidate>
+          <form class="form-update-version" (ngSubmit)="f.form.valid && updateVersion()" #f="ngForm" novalidate>
             <div class="form-group">
               <label for="updateType">Update Type</label>
-              <select class="form-control" id="updateType">
-                <option>Soft</option>
-                <option>Hard</option>
+              <select class="form-control" id="updateType" (change)="onChange($event)">
+                <option>soft</option>
+                <option>hard</option>
               </select>
             </div>
             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !version_name.valid }">
               <label for="version-name" class="col-form-label">Version Name:</label>
               <input type="text" class="form-control" id="version-name" name="version_name" [(ngModel)]="model.version_name"
-                #version_name="ngModel" required>
+                #version_name="ngModel" readonly required>
             </div>
             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !version_code.valid }">
               <label for="version-code" class="col-form-label">Version Code:</label>
               <input type="number" class="form-control" id="version-code" name="version_code" [(ngModel)]="model.version_code"
-                #version_code="ngModel" required>
+                #version_code="ngModel" readonly required>
             </div>
             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !title.valid }">
               <label for="title" class="col-form-label">App Dialog Title:</label>
               <input type="text" class="form-control" id="title" name="title" [(ngModel)]="model.title" #title="ngModel"
                 required>
             </div>
-            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !description.valid }">
-              <label for="description" class="col-form-label">App Dialog Message:</label>
-              <textarea class="form-control" id="description" name="description" [(ngModel)]="model.description"
-                #description="ngModel" required></textarea>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !message.valid }">
+              <label for="message" class="col-form-label">App Dialog Message:</label>
+              <textarea class="form-control" id="message" name="message" [(ngModel)]="model.message"
+                #message="ngModel" required></textarea>
             </div>
-            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !positive.valid }">
-              <label for="positive" class="col-form-label">Dialog Positive Action Text:</label>
-              <input type="text" class="form-control" id="positive" name="positive" [(ngModel)]="model.positive"
-                #positive="ngModel">
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !positive_button_text.valid }">
+              <label for="positive_button_text" class="col-form-label">Dialog Positive Action Text:</label>
+              <input type="text" class="form-control" id="positive_button_text" name="positive_button_text" [(ngModel)]="model.positive_button_text"
+                #positive_button_text="ngModel">
             </div>
-            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !negative.valid }">
-                <label for="negative" class="col-form-label">Dialog Negative Action Text:</label>
-                <input type="text" class="form-control" id="negative" name="negative" [(ngModel)]="model.negative"
-                  #negative="ngModel">
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !negative_button_text.valid }">
+              <label for="negative_button_text" class="col-form-label">Dialog Negative Action Text:</label>
+              <input type="text" class="form-control" id="negative_button_text" name="negative_button_text" [(ngModel)]="model.negative_button_text"
+                #negative_button_text="ngModel">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Update configuration</button>
               </div>
           </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Update configuration</button>
         </div>
       </div>
     </div>
