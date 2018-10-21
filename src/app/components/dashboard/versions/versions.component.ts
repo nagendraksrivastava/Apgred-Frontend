@@ -73,7 +73,7 @@ export class VersionsComponent implements OnInit {
     // this.getAppVersions()
   }
 
-  public updateVersion(version: VersionDetail) {
+  public updateVersion() {
     this.updateVersionService.updateVersion(this.updateType, this.model.version_name, this.model.version_code, this.model.title,
       this.model.message, this.model.positive_button_text, this.model.negative_button_text, this.loggedInUser.app_token, "100", false)
       .subscribe(success => {
