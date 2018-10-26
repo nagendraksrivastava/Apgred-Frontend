@@ -14,7 +14,12 @@ export interface TotalUsers {
 export class TotalusersService {
   constructor(private http: HttpClient) { }
 
-  totalUsers() {
-    return this.http.get<TotalUsers>(ApiEndPoints.BASE_URL + total_users_endpoint);
+  totalUsers(appToken: string) {
+    return this.http.get<TotalUsers>(ApiEndPoints.BASE_URL + total_users_endpoint,
+      {
+        params: {
+          app_token: appToken
+        }
+      });
   }
 }
