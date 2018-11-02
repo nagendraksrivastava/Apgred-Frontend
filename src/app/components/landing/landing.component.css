@@ -1,6 +1,7 @@
 header.masthead {
     position: relative;
-    background-color: #fff;
+    background-color: transparent;
+    background: url("/src/assets/apgred.png") no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -11,10 +12,13 @@ header.masthead {
 
 @media (min-width: 768px) {
     header.masthead {
-        padding-top: 8rem;
-        padding-bottom: 4rem;
+        height: 100vh;
+        padding-top: 24rem;
+      }
+    header.masthead h1 {
+      font-size: 3.2rem;
     }
-}
+  }
 
 .showcase .showcase-text {
     padding: 3rem;
@@ -69,7 +73,7 @@ header.masthead {
 
 .call-to-action {
     position: relative;
-    background-color: #fff;
+    background-color: indigo;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -81,4 +85,8 @@ header.masthead {
 footer.footer {
     padding-top: 4rem;
     padding-bottom: 4rem;
+}
+
+.nav-bar-scrolled {
+    background-color: indigo !important;
 }
