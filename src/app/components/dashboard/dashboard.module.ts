@@ -24,6 +24,10 @@ import { AddVersionService } from '../../services/add-version.service';
 import { AppcommonModule } from '../appcommon/appcommon.module';
 import { EnableVersionProdService } from 'src/app/services/enable-version-prod.service';
 import { UpdateVersionService } from 'src/app/services/update-version.service';
+import { ProfileService } from 'src/app/services/profile.service';
+import { SettingsService } from 'src/app/services/settings.service';
+import { SettingsComponent } from './settings/settings.component';
+import { CompanyprofileComponent } from './companyprofile/companyprofile.component';
 
 const dashboardRoutes: Routes = [
   {
@@ -43,6 +47,14 @@ const dashboardRoutes: Routes = [
       {
         path: 'versionmanagement',
         component: VersionManagementComponent
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent
+      },
+      {
+        path: 'profile',
+        component: CompanyprofileComponent
       },
     ]
   }
@@ -67,6 +79,8 @@ const dashboardRoutes: Routes = [
     LargenumberpipePipe,
     VersionsComponent,
     AddVersionComponent,
+    SettingsComponent,
+    CompanyprofileComponent,
   ],
   exports: [],
   providers: [
@@ -77,6 +91,8 @@ const dashboardRoutes: Routes = [
     AddVersionService,
     EnableVersionProdService,
     UpdateVersionService,
+    ProfileService,
+    SettingsService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApgredRequestInterceptor,

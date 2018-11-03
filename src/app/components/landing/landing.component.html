@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<nav class="navbar navbar-dark fixed-top" style="background-color: transparent;" [ngClass]= "{'nav-bar-scrolled': contentScrolled}">
+<nav class="navbar navbar-dark fixed-top" style="background-color: transparent;" [ngClass]="{'nav-bar-scrolled': contentScrolled}">
   <a class="navbar-brand  mb-0 h1" href="/">APGRED</a>
   <a class="btn btn-outline-light justify-content-end" href="login">Sign In</a>
 </nav>
@@ -9,7 +9,8 @@
   <div class="container">
     <div class="row">
       <div class="col-xl-12">
-        <h1 class="font-weight-bold text-light">An intelligent version management platform for your iOS and Android apps</h1>
+        <h1 class="font-weight-bold text-light">An intelligent version management platform for your iOS and Android
+          apps</h1>
       </div>
     </div>
     <button type="button" (click)="scroll(businessleadform)" class="btn btn-light btn-lg mt-5">Request Demo</button>
@@ -17,7 +18,7 @@
 </header>
 
 <!-- Icons Grid -->
-<section class="features-icons bg-light text-center" style="background-color: white;">
+<section class="features-icons bg-light text-center">
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
@@ -30,21 +31,21 @@
         </div>
       </div>
       <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+          <div class="features-icons-icon  justify-content-center align-items-center">
+            <i class="fa fa-filter fa-5x text-primary"></i>
+          </div>
+          <h3>Get feedback from your users</h3>
+          <p class="lead mb-0">Improve your app features faster by asking your users for feedback</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
         <div class="features-icons-item mx-auto mb-0 mb-lg-3">
           <div class="features-icons-icon justify-content-center align-items-center">
             <i class="fa fa-cube fa-5x text-primary"></i>
           </div>
           <h3>Easily integrate our mobile app SDK's</h3>
           <p class="lead mb-0">Integrate our mobile SDK's in a few steps!</p>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-          <div class="features-icons-icon  justify-content-center align-items-center">
-            <i class="fa fa-pie-chart fa-5x text-primary"></i>
-          </div>
-          <h3>Understand your core users</h3>
-          <p class="lead mb-0">Get to know your users better with our advanced dashboard.</p>
         </div>
       </div>
     </div>
@@ -55,12 +56,19 @@
 <section class="showcase">
   <div class="container-fluid p-0">
     <div class="row no-gutters">
-      <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/manage-versions.jpeg');"></div>
-      <div class="col-lg-6 my-auto showcase-text">
+      <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/manage-versions.jpeg');"></div>
+      <div class="col-lg-6 order-lg-1 my-auto showcase-text">
         <h2>Manage your app versions with ease</h2>
-        <p class="lead mb-0">With one click you can make any app version as your current version; our SDK's will
-          take care
-          of managing your app versions going forward!</p>
+        <p class="lead mb-0">Do you want your app users to use your latest app version?
+          With Apgred you can enforce any app version for your entire user base or for a portion of your users</p>
+      </div>
+    </div>
+    <div class="row no-gutters">
+      <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/user-insights.jpeg');"></div>
+      <div class="col-lg-6 my-auto showcase-text">
+        <h2>Get feedback from your users</h2>
+        <p class="lead mb-0">Create feedback questionares on our dashboard for your users, we will take care of asking
+          your users for feedback at the right time</p>
       </div>
     </div>
     <div class="row no-gutters">
@@ -70,15 +78,6 @@
         <p class="lead mb-0">Add a few lines of code to your existing apps and get the ability to fully control which
           versions
           of apps your users should use!</p>
-      </div>
-    </div>
-    <div class="row no-gutters">
-      <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/user-insights.jpeg');"></div>
-      <div class="col-lg-6 my-auto showcase-text">
-        <h2>Understand user interaction with your apps</h2>
-        <p class="lead mb-0">Track critical metrics like total app installs/uninstalls, daily, weekly & monthly
-          active
-          users and version based users!</p>
       </div>
     </div>
   </div>
