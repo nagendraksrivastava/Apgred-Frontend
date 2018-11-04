@@ -1,7 +1,7 @@
 header.masthead {
     position: relative;
     background-color: transparent;
-    background: url("/src/assets/apgred.png") no-repeat center center;
+    background: url("../../../assets/apgred.jpg") no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
