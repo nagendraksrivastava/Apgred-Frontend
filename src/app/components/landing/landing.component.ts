@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild, HostListener, ElementRef, AfterViewInit } from '@angular/core';
 import { BusinessleadsService } from 'src/app/services/businessleads.service';
-import { headersToString } from 'selenium-webdriver/http';
-import { AlertService } from 'src/app/services/alert-service.service';
 
 declare const window: any;
 
