@@ -156,11 +156,14 @@
               </div>
             </div>
             <div class="col-12 col-md-4 col-xl-3 mt-2 mb-2">
-              <button [disabled]="loading" type="submit" class="btn btn-block btn-lg btn-light">Contact Us!</button>
+              <button [disabled]="loading || !form.valid" type="submit" class="btn btn-block btn-lg btn-light">Contact Us!</button>
             </div>
             <ng-container *ngIf="show">
               <p class="text-center font-weight-bold mt-4">Thank you for contacting us, we will get back to you very
                 shortly!</p>
+            </ng-container>
+            <ng-container *ngIf="error">
+              <p class="text-center text-danger font-weight-bold mt-4">This email is already submitted, please try again with a different email address!</p>
             </ng-container>
           </div>
         </form>

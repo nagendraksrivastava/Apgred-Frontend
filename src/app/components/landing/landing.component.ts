@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, HostListener, ElementRef, AfterViewInit } from '@angular/core';
 import { BusinessleadsService } from 'src/app/services/businessleads.service';
 import { headersToString } from 'selenium-webdriver/http';
+import { AlertService } from 'src/app/services/alert-service.service';
 
 declare const window: any;
 
@@ -16,6 +17,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
   model: any = {};
   loading = false;
   public show: boolean = false;
+  public error: boolean = false;
   public contentScrolled: boolean = false;
   private scrollHeight: number = 0;
 
@@ -45,6 +47,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
   businessLeads() {
     this.loading = true;
     this.businessLeadsService.businessLead(this.model.email, this.model.phone).subscribe(success => {
+      this.error = false;
       this.form.resetForm();
       this.loading = false;
       this.show = true;
@@ -52,8 +55,12 @@ export class LandingComponent implements OnInit, AfterViewInit {
         this.show = false;
       }.bind(this), 5000);
     }, error => {
+      this.error = true;
       this.loading = false;
       this.show = false;
+      setTimeout(function () {
+        this.error = false;
+      }.bind(this), 5000);
     })
   }
 
