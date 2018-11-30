@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { AddVersionService } from '../../../services/add-version.service';
 import { AlertService } from '../../../services/alert-service.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
@@ -16,6 +16,8 @@ export class AddVersionComponent implements OnInit {
   loggedInUser: any;
   @Input()
   allVersions: VersionsComponent;
+  @ViewChild('f') form;
+  collapse: boolean = true;
 
   constructor(private add_version_service: AddVersionService, private alert_service: AlertService,
     private localStorageService: LocalStorageService) { }
@@ -23,14 +25,25 @@ export class AddVersionComponent implements OnInit {
   ngOnInit() {
   }
 
+  scroll(el) {
+    if (!this.collapse) {
+      setTimeout(function () {
+        el.scrollIntoView({ behavior: "smooth" });
+      }.bind(this), 400);
+    }
+  }
+
   addVersion() {
     this.loading = true;
     this.loggedInUser = this.localStorageService.get("loggedInUser");
     this.add_version_service.addVersion(this.loggedInUser.app_token, this.model.versionName,
-      this.model.versionCode, (this.model.isProduction != null ? this.model.isProduction : false))
+      this.model.versionCode, (this.model.isProduction != null ? this.model.isProduction : false),
+      (this.model.isEnabled != null ? this.model.isEnabled : false),
+      this.model.releaseNotes)
       .subscribe(data => {
         //reload all versions
         this.loading = false;
+        this.form.resetForm();
         this.allVersions.getAppVersions()
       },
         error => {

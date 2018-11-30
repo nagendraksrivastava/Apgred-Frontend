@@ -69,7 +69,6 @@ export class VersionsComponent implements OnInit {
     console.log("called onIsProductionChanged")
     console.log(version)
     this.enableVersionProdService.enableVersion(this.loggedInUser.app_token, version).subscribe()
-    this.enableVersionProdService.enableIsProduction(this.loggedInUser.app_token, version).subscribe()
     // this.getAppVersions()
   }
 
