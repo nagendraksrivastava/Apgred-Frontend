@@ -1,3 +1,3 @@
 export class ApiEndPoints {
-    public static BASE_URL = "http://127.0.0.1:8000/dashboard/v1"
+    public static BASE_URL = "http://apgred.com/api/dashboard/v1"
 }

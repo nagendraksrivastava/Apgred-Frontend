@@ -1,0 +1,220 @@
+<!-- Navigation -->
+<nav class="navbar navbar-dark fixed-top" style="background-color: transparent;" [ngClass]="{'nav-bar-scrolled': contentScrolled}">
+  <a class="navbar-brand  mb-0 h1" href="/">APGRED</a>
+  <a class="btn btn-outline-light justify-content-end" href="login">Sign In</a>
+</nav>
+
+<!-- Masthead -->
+<header class="masthead text-light text-center" #header>
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <h1 class="font-weight-bold text-light">An intelligent version management platform for your iOS and Android
+          apps</h1>
+      </div>
+    </div>
+    <button type="button" (click)="scroll(businessleadform)" class="btn btn-light btn-lg mt-5">Request Demo</button>
+  </div>
+</header>
+
+<!-- Icons Grid -->
+<section class="features-icons bg-light text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+          <div class="features-icons-icon justify-content-center align-items-center">
+            <i class="fa fa-code-fork fa-5x text-primary" style="min-width: 100%"></i>
+          </div>
+          <h3>Manage your app versions</h3>
+          <p class="lead mb-0">Manage new app versions with peace of mind.</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+          <div class="features-icons-icon  justify-content-center align-items-center">
+            <i class="fa fa-filter fa-5x text-primary"></i>
+          </div>
+          <h3>Get feedback from your users</h3>
+          <p class="lead mb-0">Improve your app features faster by asking your users for feedback</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+          <div class="features-icons-icon justify-content-center align-items-center">
+            <i class="fa fa-cube fa-5x text-primary"></i>
+          </div>
+          <h3>Easily integrate our mobile app SDK's</h3>
+          <p class="lead mb-0">Integrate our mobile SDK's in a few steps!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Image Showcases -->
+<section class="showcase">
+  <div class="container-fluid p-0">
+    <div class="row no-gutters">
+      <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/manage-versions.jpeg');"></div>
+      <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+        <h2>Manage your app versions with ease</h2>
+        <p class="lead mb-0">Do you want your app users to use your latest app version?
+          With Apgred you can enforce any app version for your entire user base or for a portion of your users</p>
+      </div>
+    </div>
+    <div class="row no-gutters">
+      <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/user-insights.jpeg');"></div>
+      <div class="col-lg-6 my-auto showcase-text">
+        <h2>Get feedback from your users</h2>
+        <p class="lead mb-0">Create feedback questionares on our dashboard for your users, we will take care of asking
+          your users for feedback at the right time</p>
+      </div>
+    </div>
+    <div class="row no-gutters">
+      <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/sdk-integration.jpeg');"></div>
+      <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+        <h2>Easily integrate our mobile app SDK's</h2>
+        <p class="lead mb-0">Add a few lines of code to your existing apps and get the ability to fully control which
+          versions
+          of apps your users should use!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+
+<!-- <section class="testimonials text-center bg-light">
+  <div class="container">
+    <h2 class="mb-5">What people are saying...</h2>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+          <img class="img-fluid rounded-circle mb-3" src="assets/testimonials-1.jpg" alt="">
+          <h5>Margaret E.</h5>
+          <p class="font-weight-light mb-0">"This is fantastic! Version based user information is very insightful!"</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+          <img class="img-fluid rounded-circle mb-3" src="assets/testimonials-2.jpg" alt="">
+          <h5>Fred S.</h5>
+          <p class="font-weight-light mb-0">"Apgred is amazing. We've been using it to control latest app versions on Google
+            Play Store."</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+          <img class="img-fluid rounded-circle mb-3" src="assets/testimonials-3.jpg" alt="">
+          <h5>Sarah W.</h5>
+          <p class="font-weight-light mb-0">"SDK integration is the simplest, just add one line of code and you are good
+            to go!"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- Call to Action -->
+<section #businessleadform class="call-to-action text-light">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <h2 class="mb-4 text-center">Ready to get started? Contact us now!</h2>
+      </div>
+      <div class="col-md-12 col-lg-10 col-xl-10 mx-auto">
+        <form class="form-business-leads" (ngSubmit)="f.form.valid && businessLeads()" #f="ngForm" novalidate>
+          <div class="form-row justify-content-md-center">
+            <div class="col-12 col-md-4 col-xl-4 mt-2 mb-2" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+              <input type="email" id="inputEmail" class="form-control form-control-lg" placeholder="Enter your email..."
+                name="email" [(ngModel)]="model.email" #email="ngModel" email pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+                required>
+              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="mt-2 alert alert-danger">
+                <div *ngIf="email.errors && email.errors.required" class="help-block text-danger">
+                  Email is required
+                </div>
+                <div *ngIf="email.errors && email.errors.pattern" class="help-block text-danger">
+                  Email is invalid
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 col-xl-4 mt-2 mb-2" [ngClass]="{ 'has-error': f.submitted && !phone.valid }">
+              <input type="tel" id="inputPhone" class="form-control form-control-lg" placeholder="Enter your phone..."
+                name="phone" [(ngModel)]="model.phone" #phone="ngModel" minlength="10" pattern="^[0-9]*$" required>
+              <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="mt-2 alert alert-danger">
+                <div *ngIf="phone.errors.required">
+                  Phone is required!
+                </div>
+                <div *ngIf="phone.errors && phone.errors.pattern" class="help-block text-danger">
+                  Phone should be numeric!
+                </div>
+                <div *ngIf="phone.errors.minlength">
+                  Phone must be at least 10 characters long.
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 col-xl-3 mt-2 mb-2">
+              <button [disabled]="loading || !form.valid" type="submit" class="btn btn-block btn-lg btn-light">Contact Us!</button>
+            </div>
+            <ng-container *ngIf="show">
+              <p class="text-center font-weight-bold mt-4">Thank you for contacting us, we will get back to you very
+                shortly!</p>
+            </ng-container>
+            <ng-container *ngIf="error">
+              <p class="text-center text-danger font-weight-bold mt-4">This email is already submitted, please try again with a different email address!</p>
+            </ng-container>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<!-- <footer class="footer bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+        <ul class="list-inline mb-2">
+          <li class="list-inline-item">
+            <a href="#">About</a>
+          </li>
+          <li class="list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a href="#">Contact</a>
+          </li>
+          <li class="list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a href="#">Terms of Use</a>
+          </li>
+          <li class="list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a href="#">Privacy Policy</a>
+          </li>
+        </ul>
+        <p class="text-muted small mb-4 mb-lg-0">&copy; Apgred 2018. All Rights Reserved.</p>
+      </div>
+      <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item mr-3">
+            <a href="#">
+              <i class="fa fa-facebook fa-2x fa-fw"></i>
+            </a>
+          </li>
+          <li class="list-inline-item mr-3">
+            <a href="#">
+              <i class="fa fa-twitter fa-2x fa-fw"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <i class="fa fa-instagram fa-2x fa-fw"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer> -->

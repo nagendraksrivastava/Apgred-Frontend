@@ -17,8 +17,8 @@ export class ActiveusersService {
 
   constructor(private http: HttpClient) { }
 
-  activeUsers(filterType: string) {
-    let params = new HttpParams().set("active",filterType)
+  activeUsers(filterType: string, appToken: string) {
+    let params = new HttpParams().set("active",filterType).set("app_token", appToken)
     return this.http.get<ActiveUsers>(ApiEndPoints.BASE_URL + active_users, { params: params });
   }
 }

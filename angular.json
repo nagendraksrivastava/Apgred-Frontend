@@ -19,11 +19,11 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
+              "src/apgred.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/sass/styles.scss"
             ],
             "scripts": []
           },
@@ -76,7 +76,7 @@
             ],
             "scripts": [],
             "assets": [
-              "src/favicon.ico",
+              "src/apgred.ico",
               "src/assets"
             ]
           }
@@ -123,5 +123,10 @@
       }
     }
   },
-  "defaultProject": "apgred-web"
+  "defaultProject": "apgred-web",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

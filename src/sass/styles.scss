@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+$primary: indigo;
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "~font-awesome/css/font-awesome.css";
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900);
+@import './variables';
+@import './mixins';
+
+body {
+    background: #FFFFFF;
+    font-family: 'Work Sans', sans-serif !important;
+    height: 100%;
+}
