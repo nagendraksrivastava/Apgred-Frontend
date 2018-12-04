@@ -31,10 +31,15 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           this.loading = false
-          this.router.navigate([this.returnUrl]);
+          var failure = (data as any)
+          if (failure.status && failure.status.message) {
+            this.alertService.error(failure.status.message)
+          } else {
+            this.router.navigate([this.returnUrl]);
+          }
         },
         error => {
-          this.alertService.error("Unable to login, please check your login credentials!");
+          this.alertService.error(error.message);
           this.loading = false;
         });
   }

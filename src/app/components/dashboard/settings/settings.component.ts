@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingsService, Data } from 'src/app/services/settings.service';
+import { SettingsService, Data, Settings } from 'src/app/services/settings.service';
 import { AlertService } from 'src/app/services/alert-service.service';
 
 @Component({
@@ -9,13 +9,13 @@ import { AlertService } from 'src/app/services/alert-service.service';
 })
 export class SettingsComponent implements OnInit {
 
-  data: Data
+  settings: Settings
 
   constructor(private settingsService: SettingsService, private alertService: AlertService) { }
 
   ngOnInit() {
     this.settingsService.getSettings().subscribe(settings => {
-      this.data = settings.data
+      this.settings = settings
     },
       error => {
         this.alertService.error(JSON.stringify(error.json()))
