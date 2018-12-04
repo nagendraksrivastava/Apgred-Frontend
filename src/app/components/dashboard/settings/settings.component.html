@@ -9,10 +9,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngIf="settings">
         <th scope="row">1</th>
-        <td>{{data.secret}}</td>
-        <td>{{data.app_token[0].app_token}}</td>
+        <td>{{settings.data.secret}}</td>
+        <td>{{settings.data.app_token[0].app_token}}</td>
       </tr>
     </tbody>
   </table>

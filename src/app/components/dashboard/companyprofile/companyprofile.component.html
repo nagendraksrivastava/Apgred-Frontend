@@ -1,7 +1,7 @@
 <div class="container mt-4 ml-4 mr-4">
   <h3 class="ml-2 mb-3" style="font-weight: 300;">Your company profile</h3>
   <table class="table table-bordered">
-    <tbody>
+    <tbody *ngIf="companyProfile">
       <tr>
         <td>Company name</td>
         <td>{{companyProfile.company_name}}</td>

@@ -31,14 +31,11 @@
     </div>
     <div class="form-group mt-2 mb-3">
       <label for="inputReleaseNotes">Release Notes</label>
-      <textarea pattern=".{100,}" rows="10" type="text" id="inputReleaseNotes" class="form-control" placeholder="Please enter release notes for this app version, this should be the same as the release notes you had entered while uploading this version to App Store."
+      <textarea rows="10" type="text" id="inputReleaseNotes" class="form-control" placeholder="Please enter release notes for this app version, this should be the same as the release notes you had entered while uploading this version to App Store."
         name="releaseNotes" [(ngModel)]="model.releaseNotes" #releaseNotes="ngModel" required autofocus></textarea>
       <div *ngIf="releaseNotes.invalid && (releaseNotes.dirty || releaseNotes.touched)" class="invalid-feedback d-block">
         <div *ngIf="releaseNotes.errors.required">
           Release Notes is a required field!
-        </div>
-        <div *ngIf="releaseNotes.errors && releaseNotes.errors.pattern">
-          Minimum 100 characters!
         </div>
       </div>
     </div>

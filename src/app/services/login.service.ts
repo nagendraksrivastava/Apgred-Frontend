@@ -3,6 +3,7 @@ import { ApiEndPoints } from '../constants/api.endpoints'
 import { HttpClient } from '@angular/common/http';
 import { LocalStorageService } from './local-storage.service';
 import { map } from 'rxjs/operators';
+import { AlertService } from './alert-service.service';
 
 let login_endpoint = "/login/";
 
@@ -27,16 +28,16 @@ export class LoginService {
   constructor(private http: HttpClient, private localStorageService: LocalStorageService) { }
 
   login(username: string, password: string) {
-    return this.http.post<LoginResponse[]>(ApiEndPoints.BASE_URL + login_endpoint,
+    return this.http.post(ApiEndPoints.BASE_URL + login_endpoint,
       {
         email: username,
         password: password
       })
       .pipe(map(user => {
-        console.log(user)
         if (user[0] && user[0].token) {
           this.localStorageService.set('loggedInUser', user[0]);
         }
+        return user;
       }));
   }
 
