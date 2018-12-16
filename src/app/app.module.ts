@@ -16,6 +16,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { AppcommonModule } from './components/appcommon/appcommon.module';
 import { AlertComponent } from './components/alert/alert.component';
 import { BusinessleadsService } from './services/businessleads.service';
+import { GetfeedbackService } from './services/getfeedback.service';
+import { FeedbackComponent } from './components/dashboard/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { BusinessleadsService } from './services/businessleads.service';
     LoginComponent,
     DashboardComponent,
     NotfoundComponent,
-    AlertComponent
+    AlertComponent,
+    FeedbackComponent
   ],
   imports: [
     AppcommonModule,
@@ -38,7 +41,8 @@ import { BusinessleadsService } from './services/businessleads.service';
     AuthGuard,
     LoginService,
     LocalStorageService,
-    BusinessleadsService],
+    BusinessleadsService,
+    GetfeedbackService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

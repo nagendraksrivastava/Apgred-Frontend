@@ -1,0 +1,20 @@
+<div class="container mt-3">
+  <h3 class="ml-2" style="font-weight: 300;">User feedback</h3>
+  <ul *ngIf="feedback" class="list-group">
+    <li *ngFor="let fb of feedback" class="list-group-item">
+      <div href="#!" class="flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-2 h5">By {{fb.email}}</h5>
+          <small>{{ fb.submited_date | date:'medium' }} </small>
+        </div>
+        <p class="mb-2">{{fb.text}}</p>
+        <p class="mb-2"><span class="badge badge-info">Version name: {{fb.version_name}}</span>,
+          <span class="badge badge-info">Version code: {{fb.version_code}}</span>,
+          <span class="badge badge-info">OS: {{fb.os}}</span>,
+          <span class="badge badge-info">OS version: {{fb.os_version}}</span>,
+          <span class="badge badge-info">Version enabled: {{fb.is_enabled}}</span>
+        </p>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -28,6 +28,7 @@ import { ProfileService } from 'src/app/services/profile.service';
 import { SettingsService } from 'src/app/services/settings.service';
 import { SettingsComponent } from './settings/settings.component';
 import { CompanyprofileComponent } from './companyprofile/companyprofile.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 const dashboardRoutes: Routes = [
   {
@@ -43,6 +44,10 @@ const dashboardRoutes: Routes = [
       {
         path: 'home',
         component: HomeComponent
+      },
+      {
+        path: 'feedback',
+        component: FeedbackComponent
       },
       {
         path: 'versionmanagement',
