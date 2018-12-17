@@ -29,6 +29,7 @@ import { SettingsService } from 'src/app/services/settings.service';
 import { SettingsComponent } from './settings/settings.component';
 import { CompanyprofileComponent } from './companyprofile/companyprofile.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { SendnotificationService } from '../../services/sendnotification.service';
 
 const dashboardRoutes: Routes = [
   {
@@ -86,6 +87,7 @@ const dashboardRoutes: Routes = [
     AddVersionComponent,
     SettingsComponent,
     CompanyprofileComponent,
+    FeedbackComponent
   ],
   exports: [],
   providers: [
@@ -98,6 +100,7 @@ const dashboardRoutes: Routes = [
     UpdateVersionService,
     ProfileService,
     SettingsService,
+    SendnotificationService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApgredRequestInterceptor,

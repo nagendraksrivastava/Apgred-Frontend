@@ -17,7 +17,6 @@ import { AppcommonModule } from './components/appcommon/appcommon.module';
 import { AlertComponent } from './components/alert/alert.component';
 import { BusinessleadsService } from './services/businessleads.service';
 import { GetfeedbackService } from './services/getfeedback.service';
-import { FeedbackComponent } from './components/dashboard/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { FeedbackComponent } from './components/dashboard/feedback/feedback.comp
     DashboardComponent,
     NotfoundComponent,
     AlertComponent,
-    FeedbackComponent
   ],
   imports: [
     AppcommonModule,
