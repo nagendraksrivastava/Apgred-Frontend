@@ -5,6 +5,7 @@ import { ApiEndPoints } from '../constants/api.endpoints';
 let get_all_feedback_url = "/getfeedback/"
 let get_feedback_categories = "/getfeedbackcatgry/"
 let post_feedback_category = "/postfeedbackcatgry/"
+let enable_feedback = "/enablefeedback/"
 
 export interface Status {
   message: string;
@@ -28,9 +29,15 @@ export interface GetFeedbackResponse {
   feedback: Feedback[];
 }
 
-export interface CategoryList {
+export class CategoryList {
   id: number;
   name: string;
+  is_enabled: boolean
+  constructor(id: number, name: string, isEnabled: boolean) {
+    this.id = id;
+    this.name = name;
+    this.is_enabled = isEnabled
+  }
 }
 
 export interface GetCategoriesResponse {
@@ -69,7 +76,7 @@ export class GetfeedbackService {
   }
 
   public postCategory(appToken: string, category: string, isEnabled: boolean) {
-      return this.http.post<PostCategoryResponse>(ApiEndPoints.FEEDBACK_URL + post_feedback_category,
+    return this.http.post<PostCategoryResponse>(ApiEndPoints.FEEDBACK_URL + post_feedback_category,
       {
         app_token: appToken,
         category_text: category,

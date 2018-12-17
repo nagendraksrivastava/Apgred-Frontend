@@ -30,6 +30,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { CompanyprofileComponent } from './companyprofile/companyprofile.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { SendnotificationService } from '../../services/sendnotification.service';
+import { AddfeeedbackComponent } from './addfeeedback/addfeeedback.component';
 
 const dashboardRoutes: Routes = [
   {
@@ -49,6 +50,10 @@ const dashboardRoutes: Routes = [
       {
         path: 'feedback',
         component: FeedbackComponent
+      },
+      {
+        path: 'feedbackcategories',
+        component: AddfeeedbackComponent
       },
       {
         path: 'versionmanagement',
@@ -87,7 +92,8 @@ const dashboardRoutes: Routes = [
     AddVersionComponent,
     SettingsComponent,
     CompanyprofileComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    AddfeeedbackComponent
   ],
   exports: [],
   providers: [
