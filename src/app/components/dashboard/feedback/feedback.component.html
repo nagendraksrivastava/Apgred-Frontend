@@ -1,0 +1,68 @@
+<div class="container mt-3">
+  <div class="d-flex w-100 justify-content-between">
+    <h3 class="ml-2" style="font-weight: 300;">User feedback</h3>
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="categoryDropDown" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        {{selectedCategory}}
+      </button>
+      <ul *ngIf="categorylist" class="dropdown-menu" aria-labelledby="categoryDropDown">
+        <li *ngFor="let category of categorylist"><button class="dropdown-item" type="button" (click)="getFeedbackForCategory(category.name)">{{category.name}}</button></li>
+      </ul>
+    </div>
+  </div>
+  <ul *ngIf="feedback" class="list-group">
+    <li *ngFor="let fb of feedback" class="card mt-2 shadow">
+      <div class="d-flex w-100 justify-content-between card-header bg-light">
+        <h5 class="h5 mt-0 mb-0">From: {{fb.email}}</h5>
+        <small class="mt-0 mb-0">{{ fb.submited_date | date:'short' }} </small>
+      </div>
+      <div href="#!" class="flex-column align-items-start card-body">
+        <p>
+          <span class="badge badge-pill badge-primary">Version Name: {{fb.version_name}}</span> |
+          <span class="badge badge-pill badge-primary">Version Code: {{fb.version_code}}</span> |
+          <span class="badge badge-pill badge-primary">OS: {{fb.os}}</span> |
+          <span class="badge badge-pill badge-primary">OS Version: {{fb.os_version}}</span> |
+          <span class="badge badge-pill" [ngClass]="[fb.is_enabled ? 'badge-primary' : 'badge-secondary']">{{fb.is_enabled
+            ? "Version Enabled" : "Version Disabled"}}</span>
+        </p>
+        <p class="mb-2 card-text">{{fb.text}}</p>
+      </div>
+      <div class="d-flex justify-content-end card-footer" style="background-color: #ffffff;">
+        <button class="btn btn-link" (click)="openModal(fb)">Send Notification</button>
+      </div>
+    </li>
+  </ul>
+</div>
+<!-- Modal -->
+<div #sendNotificationModal class="modal fade" id="sendNotificationModal" tabindex="-1" role="dialog" aria-labelledby="notificationTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="notificationTitle">Send Notification</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-update-version" (ngSubmit)="f.form.valid && sendNotification()" #f="ngForm" novalidate>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !title.valid }">
+            <label for="title" class="col-form-label">Notification Title</label>
+            <input type="text" class="form-control" id="title" name="title" [(ngModel)]="model.title" #title="ngModel"
+              required>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !notificationmessage.valid }">
+            <label for="notificationmessage" class="col-form-label">Enter Notification Message</label>
+            <textarea rows="5" class="form-control" id="notificationmessage" name="notificationmessage" [(ngModel)]="model.notificationmessage"
+              #notificationmessage="ngModel" required></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
+            <button type="submit" class="btn btn-primary">Send Notification</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

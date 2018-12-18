@@ -28,6 +28,9 @@ import { ProfileService } from 'src/app/services/profile.service';
 import { SettingsService } from 'src/app/services/settings.service';
 import { SettingsComponent } from './settings/settings.component';
 import { CompanyprofileComponent } from './companyprofile/companyprofile.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { SendnotificationService } from '../../services/sendnotification.service';
+import { AddfeeedbackComponent } from './addfeeedback/addfeeedback.component';
 
 const dashboardRoutes: Routes = [
   {
@@ -43,6 +46,14 @@ const dashboardRoutes: Routes = [
       {
         path: 'home',
         component: HomeComponent
+      },
+      {
+        path: 'feedback',
+        component: FeedbackComponent
+      },
+      {
+        path: 'feedbackcategories',
+        component: AddfeeedbackComponent
       },
       {
         path: 'versionmanagement',
@@ -81,6 +92,8 @@ const dashboardRoutes: Routes = [
     AddVersionComponent,
     SettingsComponent,
     CompanyprofileComponent,
+    FeedbackComponent,
+    AddfeeedbackComponent
   ],
   exports: [],
   providers: [
@@ -93,6 +106,7 @@ const dashboardRoutes: Routes = [
     UpdateVersionService,
     ProfileService,
     SettingsService,
+    SendnotificationService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApgredRequestInterceptor,

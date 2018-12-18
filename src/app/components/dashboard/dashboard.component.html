@@ -8,7 +8,8 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['home']" href="">
+        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['home']"
+          href="">
           Home
         </a>
       </li>
@@ -18,21 +19,41 @@
           Version Management
         </a>
       </li>
+      <li class="nav-item text-center">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="feedbackdropdown" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="margin-top: 1px !important;">
+            Feedback
+          </button>
+          <div class="dropdown-menu" aria-labelledby="feedbackdropdown">
+            <a class="nav-link dropdown-item text-dark bg-light" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+              [routerLink]="['feedback']" href="">
+              Feedback
+            </a>
+            <a class="nav-link dropdown-item text-dark bg-light" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+              [routerLink]="['feedbackcategories']" href="">
+              Feedback Categories
+            </a>
+          </div>
+        </div>
+      </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['settings']" href="">
+        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['settings']"
+          href="">
           Settings
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['profile']" href="">
+        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['profile']"
+          href="">
           Profile
         </a>
       </li>
     </ul>
   </div>
   <div class="dropdown justify-content-end">
-    <button class="btn btn-primary text-capitalize" type="button" id="dashboarddropdown" data-toggle="dropdown" aria-haspopup="true"
-      aria-expanded="false">
+    <button class="btn btn-primary text-capitalize" type="button" id="dashboarddropdown" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
       {{loggedInUser.company_name}}
       <i class="fa fa-caret-down mr-2 ml-2"></i>
     </button>

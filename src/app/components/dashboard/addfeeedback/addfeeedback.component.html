@@ -1,0 +1,65 @@
+<div class="container mt-3">
+  <h3 class="ml-2" style="font-weight: 300;">Feedback Categories</h3>
+  <div class="row">
+    <div class="col-sm">
+      <table *ngIf="categorylist" class="table table-bordered mt-2 mr-2">
+        <thead>
+          <tr>
+            <th class="col-sm-3" scope="col">Category Name</th>
+            <th class="col-sm-3" scope="col">Enabled</th>
+            <th class="col-sm-3" scope="col">Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categorylist; let row_index = index">
+            <td class="col-sm-3">{{category.name}}</td>
+            <td>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="is_enabled" name="is_enabled" [checked]="category.is_enabled"
+                  (change)="category.is_enabled = !category.is_enabled">
+              </div>
+            </td>
+            <td>
+              <button type="button" class="btn btn-outline-primary btn-sm" (click)="changeEnabled(category)"><i class="fa fa-pencil-square-o"
+                  aria-hidden="true"></i>
+                Update
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="ml-2">
+    <a class="btn btn-primary btn-lg" (click)="collapse=!collapse; scroll(addcategorybutton);" data-toggle="collapse"
+      href="#addCategoryContainer" role="button" aria-expanded="false" aria-controls="addCategoryContainer">
+      Add New Category
+      <i class="fa" [ngClass]="{'fa-angle-up': !collapse, 'fa-angle-down': collapse}"></i>
+    </a>
+  </p>
+  <div class="container collapse bg-light" id="addCategoryContainer">
+    <form class="form needs-validation ml-2" (ngSubmit)="f.form.valid && addCategory();" #f="ngForm" novalidate>
+      <div class="form-row">
+        <div class="form-group mr-2 col-md-3 mt-4">
+          <label for="inputVersionName">Category Name</label>
+          <input type="text" id="inputCategoryName" class="form-control" placeholder="Category Name" name="categoryName"
+            [(ngModel)]="model.categoryName" #categoryName="ngModel" required autofocus>
+          <div *ngIf="categoryName.invalid && (categoryName.dirty || categoryName.touched)" class="invalid-feedback d-block">
+            <span *ngIf="categoryName.errors.required">
+              Category Name is a required field!
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <input type="checkbox" id="inputIsEnabled" class="form-check-input" placeholder="Is Enabled" name="isEnabled"
+            [(ngModel)]="model.isEnabled" #isEnabled="ngModel">
+          <label class="form-check-label" for="inputIsEnabled">Is Enabled</label>
+        </div>
+      </div>
+      <button #addcategorybutton [disabled]="loading || !form.valid" class="btn btn-primary mb-4" type="submit">Add
+        Category</button>
+    </form>
+  </div>
+</div>
