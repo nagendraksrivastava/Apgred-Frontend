@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ApgredWeb
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
@@ -25,3 +26,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+# Apgred-Frontend
+Apgred frontend website  
+
+Apgred front end one page website which is production ready 
+
+>>>>>>> 13212b0192966c9945d517422a905ce9348dce79
